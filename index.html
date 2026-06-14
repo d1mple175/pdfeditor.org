@@ -7,11 +7,11 @@
     <!-- PDF-Lib & FileSaver -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <!-- SortableJS untuk drag reorder -->
+    <!-- SortableJS for drag reorder -->
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts: Unconventional pairing -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +20,6 @@
             box-sizing: border-box;
         }
 
-        /* ROOT - Warm Earthy + Retro Future Palette (SAMA) */
         :root {
             --bg-primary: #FDF8F0;
             --bg-secondary: #FFF9F0;
@@ -55,10 +54,8 @@
             color: var(--text-main);
             overflow-x: hidden;
             position: relative;
-            cursor: default;
         }
 
-        /* NOISE/GRAIN TEXTURE (SAMA) */
         body::before {
             content: "";
             position: fixed;
@@ -73,39 +70,21 @@
             mix-blend-mode: multiply;
         }
 
-        /* SCROLLBAR CUSTOM - vintage style */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-            border-left: 1px solid var(--border-ink);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-coral);
-            border-radius: 0px;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); border-left: 1px solid var(--border-ink); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-coral); border-radius: 0px; }
 
-        /* TYPOGRAPHY UNIK */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            letter-spacing: -0.02em;
-        }
-        .mono-text {
-            font-family: 'DM Mono', monospace;
-            font-size: 0.85rem;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; letter-spacing: -0.02em; }
+        .mono-text { font-family: 'DM Mono', monospace; font-size: 0.85rem; }
 
-        /* NAVBAR - Brutalist + Retro (SAMA) */
+        /* NAVBAR */
         .navbar-retro {
-            padding: 1.5rem 2rem;
+            padding: 1.2rem 2rem;
             border-bottom: 3px solid var(--border-ink);
             background: var(--bg-primary);
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(0px);
         }
         .nav-flex {
             max-width: 1400px;
@@ -114,7 +93,7 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         .logo-retro {
             display: flex;
@@ -132,9 +111,8 @@
             rotate: -5deg;
         }
         .logo-retro h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
             background: linear-gradient(135deg, var(--accent-coral), var(--accent-teal));
             background-clip: text;
             -webkit-background-clip: text;
@@ -142,16 +120,17 @@
         }
         .menu-retro {
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
+            align-items: center;
         }
         .retro-btn {
             background: var(--bg-primary);
             border: 2px solid var(--border-ink);
-            padding: 0.7rem 1.3rem;
+            padding: 0.5rem 1rem;
             font-family: 'DM Mono', monospace;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
             color: var(--text-main);
@@ -162,61 +141,36 @@
             box-shadow: 1px 1px 0px var(--border-ink);
             background: var(--accent-lavender);
             color: white;
-            border-color: var(--accent-lavender);
         }
-        .retro-btn.active {
-            background: var(--accent-coral);
-            color: white;
-            border-color: var(--accent-coral);
-            box-shadow: 3px 3px 0px var(--border-ink);
-        }
+        .donate-btn { background: var(--accent-teal); color: white; }
+        .complaint-btn { background: var(--accent-coral); color: white; }
 
-        /* MAIN CONTAINER */
         .dream-container {
             max-width: 1300px;
-            margin: 3rem auto;
+            margin: 2rem auto;
             padding: 0 1.5rem;
         }
 
-        /* HERO SECTION - Wavy & Asymmetry (SAMA) */
         .hero-wavy {
             background: var(--bg-secondary);
             border: 3px solid var(--border-ink);
-            padding: 2rem 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
             box-shadow: var(--shadow-brutal);
-            transform: rotate(-0.5deg);
-            transition: transform 0.3s;
-        }
-        .hero-wavy:hover {
-            transform: rotate(0deg);
-        }
-        .hero-grid {
+            transform: rotate(-0.3deg);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
-        }
-        .hero-left .glitch-text {
-            font-size: 2.2rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-        .hero-left p {
-            margin-top: 1rem;
-            font-family: 'DM Mono', monospace;
-            color: var(--text-soft);
+            gap: 1rem;
         }
         .counter-panel {
             background: var(--accent-teal);
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             border: 2px solid var(--border-ink);
-            box-shadow: 5px 5px 0px var(--border-ink);
+            box-shadow: 4px 4px 0px var(--border-ink);
             font-family: 'DM Mono', monospace;
             font-weight: bold;
-            transform: rotate(2deg);
             display: flex;
             align-items: center;
             gap: 12px;
@@ -229,144 +183,81 @@
             font-family: 'DM Mono', monospace;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 2px 2px 0px var(--border-ink);
         }
-        .undo-btn:hover {
-            transform: translate(1px, 1px);
-            box-shadow: 1px 1px 0px var(--border-ink);
-        }
-
-        /* UPLOAD ZONE - JELLY EFFECT (SAMA) */
         .upload-vintage {
             background: var(--bg-secondary);
             border: 3px dashed var(--accent-coral);
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
-            margin-bottom: 2rem;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.2, 0.64, 1);
-            position: relative;
+            transition: all 0.3s;
+            margin-bottom: 1.5rem;
         }
         .upload-vintage:hover {
-            transform: scale(0.98) translateY(-4px);
-            border-style: solid;
+            transform: scale(0.98);
             background: var(--bg-primary);
-            box-shadow: 12px 12px 0px var(--accent-lavender);
+            box-shadow: 10px 10px 0px var(--accent-lavender);
         }
         .upload-icon-pulse {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--accent-coral);
-            animation: floaty 3s infinite ease-in-out;
+            animation: floaty 2s infinite;
         }
         @keyframes floaty {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(5deg); }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
-
-        /* FILE LIST - CARDS WITH PERSONALITY + DRAG HANDLE */
         .file-grid-gallery {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            max-height: 460px;
+            gap: 0.8rem;
+            max-height: 400px;
             overflow-y: auto;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
         .file-card-retro {
             background: var(--bg-secondary);
             border: 2px solid var(--border-ink);
-            padding: 0.9rem 1.2rem;
+            padding: 0.8rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.2s;
-            animation: cardPop 0.3s cubic-bezier(0.34, 1.2, 0.64, 1);
-            position: relative;
             cursor: grab;
+            transition: 0.1s;
         }
         .file-card-retro:active { cursor: grabbing; }
-        .file-card-retro.dragging { opacity: 0.4; }
-        @keyframes cardPop {
-            from {
-                opacity: 0;
-                transform: translateX(40px) scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-        }
         .file-card-retro:hover {
-            transform: translateX(8px);
+            transform: translateX(5px);
             background: var(--bg-primary);
-            border-left: 8px solid var(--accent-mustard);
+            border-left: 6px solid var(--accent-mustard);
         }
+        .drag-handle { cursor: grab; margin-right: 10px; color: var(--text-soft); }
         .file-icon-box {
-            width: 48px;
-            height: 48px;
+            width: 45px;
+            height: 45px;
             background: repeating-linear-gradient(45deg, var(--accent-lavender) 0px, var(--accent-lavender) 2px, transparent 2px, transparent 8px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--text-main);
             cursor: pointer;
-            transition: 0.1s;
         }
-        .file-icon-box:hover {
-            transform: scale(1.05);
-            background: var(--accent-mustard);
-        }
-        .file-info-detail {
-            flex: 2;
-        }
-        .order-controls {
-            display: flex;
-            gap: 8px;
-        }
+        .file-icon-box:hover { background: var(--accent-mustard); transform: scale(1.05); }
+        .order-controls { display: flex; gap: 6px; }
         .order-btn {
             background: var(--bg-primary);
             border: 1.5px solid var(--border-ink);
-            width: 36px;
-            height: 36px;
-            font-family: monospace;
-            font-weight: bold;
+            width: 34px;
+            height: 34px;
             cursor: pointer;
-            transition: 0.1s;
         }
-        .order-btn:hover {
-            background: var(--accent-mustard);
-            transform: scale(1.05);
-        }
-        .delete-btn {
-            background: var(--accent-coral);
-            border: none;
-            color: white;
-            width: 36px;
-            border-radius: 0px;
-        }
-        .delete-btn:hover {
-            background: #b33;
-            transform: rotate(90deg);
-        }
-        .drag-handle {
-            cursor: grab;
-            margin-right: 10px;
-            font-size: 1.2rem;
-            color: var(--text-soft);
-        }
-        .drag-handle:active { cursor: grabbing; }
-
-        /* PROGRESS BAR */
-        .progress-container {
-            margin: 1rem 0;
-            display: none;
-        }
+        .order-btn:hover { background: var(--accent-mustard); }
+        .delete-btn { background: var(--accent-coral); color: white; border: none; }
+        .delete-btn:hover { background: #b33; transform: rotate(90deg); }
+        .progress-container { margin: 1rem 0; display: none; }
         .progress-bar {
             height: 20px;
             background: var(--bg-secondary);
             border: 2px solid var(--border-ink);
-            position: relative;
         }
         .progress-fill {
             width: 0%;
@@ -374,34 +265,21 @@
             background: var(--accent-teal);
             transition: width 0.3s;
         }
-
-        /* MERGE BUTTON - EXTRA DRAMA (SAMA) */
         .merge-dramatic {
             background: var(--accent-coral);
             border: 3px solid var(--border-ink);
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             font-family: 'DM Mono', monospace;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: white;
+            font-size: 1rem;
             cursor: pointer;
-            transition: 0.2s;
+            box-shadow: 5px 5px 0px var(--border-ink);
             width: 100%;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 6px 6px 0px var(--border-ink);
         }
-        .merge-dramatic:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 2px 2px 0px var(--border-ink);
-            background: var(--accent-teal);
-        }
-
-        /* MODAL PREVIEW */
-        .modal-preview {
+        .merge-dramatic:hover { transform: translate(3px, 3px); box-shadow: 2px 2px 0px var(--border-ink); }
+        
+        /* MODAL STYLES */
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -414,78 +292,81 @@
             justify-content: center;
             visibility: hidden;
         }
-        .modal-preview.active { visibility: visible; }
-        .modal-content {
+        .modal-overlay.active { visibility: visible; }
+        .modal-box {
             background: var(--bg-primary);
             border: 4px solid var(--border-ink);
-            padding: 1rem;
-            max-width: 90%;
-            max-height: 90%;
-            overflow: auto;
+            padding: 1.5rem;
+            max-width: 650px;
+            width: 90%;
             box-shadow: 12px 12px 0px rgba(0,0,0,0.3);
         }
-        .modal-content iframe {
+        .modal-box textarea {
+            width: 100%;
+            height: 120px;
+            margin: 1rem 0;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-ink);
+            font-family: monospace;
+            padding: 8px;
+        }
+        .modal-box input {
+            width: 100%;
+            padding: 8px;
+            margin: 0.5rem 0;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-ink);
+            font-family: monospace;
+        }
+        .modal-close {
+            background: var(--accent-coral);
+            border: 2px solid var(--border-ink);
+            padding: 5px 12px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .preview-iframe {
             width: 100%;
             height: 500px;
             border: 2px solid var(--border-ink);
             background: white;
         }
-        .close-modal-btn {
-            margin-top: 10px;
-            padding: 5px 15px;
-            background: var(--accent-coral);
-            border: 2px solid var(--border-ink);
-            font-family: monospace;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* TOAST NOTIF UNIK */
         .toast-weird {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
+            bottom: 20px;
+            left: 20px;
             background: var(--accent-mustard);
             color: #2D2A24;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border: 2px solid var(--border-ink);
             font-family: 'DM Mono', monospace;
             font-weight: bold;
-            z-index: 2000;
-            animation: slideLeftFade 0.3s ease;
-            box-shadow: 5px 5px 0px black;
+            z-index: 2001;
+            animation: slideLeft 0.3s;
+            box-shadow: 4px 4px 0px black;
         }
-        @keyframes slideLeftFade {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        @keyframes slideLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-
         .empty-state-quirk {
             text-align: center;
-            padding: 2.5rem;
-            font-family: 'Playfair Display', serif;
+            padding: 2rem;
             font-style: italic;
             color: var(--text-soft);
             border: 2px dashed var(--border-ink);
         }
-
         footer {
-            margin-top: 4rem;
-            padding: 2rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
             text-align: center;
             border-top: 2px dotted var(--border-ink);
             font-size: 0.7rem;
-            font-family: monospace;
         }
         @media (max-width: 750px) {
-            .hero-grid { flex-direction: column; }
-            .file-card-retro { flex-direction: column; gap: 12px; align-items: stretch; }
+            .file-card-retro { flex-direction: column; gap: 10px; align-items: stretch; }
+            .hero-wavy { flex-direction: column; text-align: center; }
+            .preview-iframe { height: 350px; }
         }
     </style>
 </head>
@@ -498,74 +379,97 @@
             <div class="badge">merge·punk</div>
         </div>
         <div class="menu-retro">
-            <button class="retro-btn active" id="navMergeBtn"><i class="fas fa-object-group"></i> MERGE LAB</button>
-            <button class="retro-btn" id="navPlayBtn"><i class="fas fa-compress-alt"></i> STOMP</button>
-            <button class="retro-btn" id="navMysticBtn"><i class="fas fa-crown"></i> MYSTIC</button>
-            <button class="retro-btn" id="themeToggler"><i class="fas fa-adjust"></i> MOOD</button>
+            <button class="retro-btn" id="aboutBtn"><i class="fas fa-info-circle"></i> About</button>
+            <button class="retro-btn donate-btn" id="donateBtn"><i class="fas fa-heart"></i> Donate</button>
+            <button class="retro-btn complaint-btn" id="complaintBtn"><i class="fas fa-bug"></i> Report</button>
+            <button class="retro-btn" id="themeToggler"><i class="fas fa-adjust"></i> Mood</button>
         </div>
     </div>
 </div>
 
-<div class="dream-container" id="mainApp">
-    <!-- HERO -->
+<div class="dream-container">
     <div class="hero-wavy">
-        <div class="hero-grid">
-            <div class="hero-left">
-                <div class="glitch-text">✧ gabungkan dengan gaya ✧</div>
-                <p>atur, susun, dan cantum PDF sampai jadi masterpiece — tarik kad untuk susun! klik preview</p>
-            </div>
-            <div class="counter-panel" id="statsPanel">
-                <span id="fileCounter">0</span> Naskhah PDF sedia <i class="fas fa-scroll"></i>
-                <button id="undoBtn" class="undo-btn"><i class="fas fa-undo-alt"></i> Undo</button>
-            </div>
+        <div>
+            <h2 style="font-family:'Playfair Display'">✧ merge with style ✧</h2>
+            <p class="mono-text">drag cards to reorder · click icon to preview</p>
+        </div>
+        <div class="counter-panel">
+            <span id="fileCounter">0</span> PDF <i class="fas fa-scroll"></i>
+            <button id="undoBtn" class="undo-btn"><i class="fas fa-undo-alt"></i> Undo</button>
         </div>
     </div>
 
-    <!-- CORE UPLOAD PANEL -->
-    <div style="background: var(--bg-secondary); border: 2px solid var(--border-ink); padding: 2rem; margin-bottom: 2rem; box-shadow: var(--shadow-float);">
+    <div style="background: var(--bg-secondary); border: 2px solid var(--border-ink); padding: 1.5rem;">
         <div class="upload-vintage" id="uploadZone">
-            <div class="upload-icon-pulse">
-                <i class="fas fa-cloud-upload-alt"></i>
-            </div>
-            <h3 style="margin: 1rem 0; font-family: 'Playfair Display';">taruh pdf sini wahai pengembara</h3>
-            <p class="mono-text">drag & drop atau klik · max 20 fail · tarik kad untuk susun</p>
+            <div class="upload-icon-pulse"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3>drop your PDFs here</h3>
+            <p class="mono-text">click or drag & drop · max 20 files</p>
             <input type="file" id="fileInput" multiple accept="application/pdf" hidden>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin: 1rem 0 0.5rem;">
-            <h3><i class="fas fa-arrows-alt"></i> SUSUNAN (tarik kad atau guna ↑↓)</h3>
-            <button id="clearAllBtn" style="background: none; border: 2px solid var(--border-ink); padding: 6px 14px; font-family: monospace; font-weight: bold; cursor: pointer;">✖ KOSONGKAN</button>
+        <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+            <h3><i class="fas fa-arrows-alt"></i> PDF LIST (drag to reorder)</h3>
+            <button id="clearAllBtn" style="background:none; border:2px solid var(--border-ink); padding:5px 12px;">✖ CLEAR ALL</button>
         </div>
 
         <div id="fileListContainer" class="file-grid-gallery">
-            <div class="empty-state-quirk">༄  tiada pdf, angin bertiup sunyi. upload dulu ༄</div>
+            <div class="empty-state-quirk">༄ no PDFs yet. upload some files ༄</div>
         </div>
 
-        <!-- Progress Bar -->
         <div class="progress-container" id="progressContainer">
             <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-            <p class="mono-text" id="progressText" style="margin-top: 5px;">menunggu...</p>
+            <p class="mono-text" id="progressText">waiting...</p>
         </div>
 
-        <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-            <button id="mergeActionBtn" class="merge-dramatic"><i class="fas fa-merge"></i> GABUNGKAN DENGAN KUASA!</button>
-            <button id="resetActionBtn" style="background: var(--bg-primary); border: 2px solid var(--border-ink); padding: 0 1.5rem; font-weight: bold;">⟳ RESET SENARAI</button>
-        </div>
+        <button id="mergeActionBtn" class="merge-dramatic"><i class="fas fa-merge"></i> MERGE WITH POWER!</button>
+        <button id="resetActionBtn" style="margin-top:10px; width:100%; background:var(--bg-primary); border:2px solid var(--border-ink); padding:0.7rem;">⟳ RESET LIST</button>
     </div>
-    <footer>⚡ setiap fail diproses dalam pelayar. tarik kad untuk susun, klik ikon untuk preview — jiwa kekal!</footer>
+    <footer>⚡ all processing happens in your browser · drag to reorder · click icon to preview</footer>
 </div>
 
-<!-- Modal Preview -->
-<div id="previewModal" class="modal-preview">
-    <div class="modal-content">
-        <iframe id="previewIframe" src="about:blank"></iframe>
+<!-- About Modal -->
+<div id="aboutModal" class="modal-overlay">
+    <div class="modal-box">
+        <h3><i class="fas fa-user-astronaut"></i> About PDFeditor</h3>
+        <hr style="margin:10px 0; border-color:var(--border-ink);">
+        <p><strong>Author:</strong> Rizq-Azamirol</p>
+        <p><strong>Release Date:</strong> 2025</p>
+        <p><strong>Purpose:</strong> A standalone, offline-capable PDF merging tool designed for users who value both functionality and unconventional aesthetics. This application allows you to merge multiple PDF files, reorder them via drag-and-drop, preview documents before merging, and track merge progress — all within your browser without any data being uploaded to external servers.</p>
+        <p><strong>Technical Stack:</strong> PDF-Lib, SortableJS, FileSaver.js</p>
+        <p><strong>Design Philosophy:</strong> Dream Brut · Weirdcore · Neubrutalism</p>
+        <button class="modal-close" onclick="closeModal('aboutModal')">Close</button>
+    </div>
+</div>
+
+<!-- Preview Modal - FIXED! -->
+<div id="previewModal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 800px;">
+        <h3><i class="fas fa-file-pdf"></i> PDF Preview</h3>
+        <hr style="margin:10px 0; border-color:var(--border-ink);">
+        <iframe id="previewIframe" class="preview-iframe" src="about:blank"></iframe>
         <br>
-        <button id="closeModalBtn" class="close-modal-btn">Tutup Preview</button>
+        <button class="modal-close" onclick="closeModal('previewModal')">Close Preview</button>
+    </div>
+</div>
+
+<!-- Complaint Modal -->
+<div id="complaintModal" class="modal-overlay">
+    <div class="modal-box">
+        <h3><i class="fas fa-bug"></i> Report Issue / Send Feedback</h3>
+        <hr style="margin:10px 0; border-color:var(--border-ink);">
+        <label>Your Name (optional):</label>
+        <input type="text" id="complaintName" placeholder="name or anonymous">
+        <label>Your Email (optional):</label>
+        <input type="email" id="complaintEmail" placeholder="email for reply">
+        <label>Message / Feedback:</label>
+        <textarea id="complaintMessage" placeholder="Describe the issue or feedback..."></textarea>
+        <button id="sendComplaintBtn" class="modal-close" style="background:var(--accent-teal);"><i class="fas fa-paper-plane"></i> Send via Email</button>
+        <button class="modal-close" onclick="closeModal('complaintModal')" style="margin-left:10px;">Cancel</button>
     </div>
 </div>
 
 <script>
-    // ----- STATE MANAGEMENT ------
+    // ---------- STATE ----------
     let pdfStack = [];
     let uid = 1;
     let undoHistory = [];
@@ -582,17 +486,14 @@
     const progressContainer = document.getElementById('progressContainer');
     const progressFill = document.getElementById('progressFill');
     const progressText = document.getElementById('progressText');
-    const previewModal = document.getElementById('previewModal');
     const previewIframe = document.getElementById('previewIframe');
-    const closeModalBtn = document.getElementById('closeModalBtn');
 
     let sortableInstance = null;
 
-    // fungsi notifikasi
-    function notify(msg, isError = false) {
+    function notify(msg, isErr = false) {
         const toast = document.createElement('div');
         toast.className = 'toast-weird';
-        toast.innerHTML = `${isError ? '⚠️' : '✨'} ${msg}`;
+        toast.innerHTML = `${isErr ? '⚠️' : '✨'} ${msg}`;
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2800);
     }
@@ -604,61 +505,49 @@
     }
 
     function saveToLocal() {
-        const toSave = pdfStack.map(item => ({
-            id: item.id, name: item.name, size: item.size, pageCount: item.pageCount || 0
-        }));
+        const toSave = pdfStack.map(item => ({ id: item.id, name: item.name, size: item.size, pageCount: item.pageCount || 0 }));
         localStorage.setItem('pdfeditor_metadata', JSON.stringify(toSave));
     }
 
-    function updateCounter() {
-        fileCounterSpan.innerText = pdfStack.length;
-        saveToLocal();
+    function updateCounter() { fileCounterSpan.innerText = pdfStack.length; saveToLocal(); }
+    function saveHistory() { undoHistory.push(JSON.parse(JSON.stringify(pdfStack))); if (undoHistory.length > 20) undoHistory.shift(); }
+    function undoLast() { if (undoHistory.length > 0) { pdfStack = JSON.parse(JSON.stringify(undoHistory.pop())); renderFileList(); notify("↩️ Undo successful!"); } else notify("No undo history available", true); }
+
+    async function getPageCount(file) {
+        try {
+            const buf = await file.arrayBuffer();
+            const { PDFDocument } = PDFLib;
+            const doc = await PDFDocument.load(buf);
+            return doc.getPageCount();
+        } catch { return 0; }
     }
 
-    function saveHistory() {
-        undoHistory.push(JSON.parse(JSON.stringify(pdfStack)));
-        if (undoHistory.length > 20) undoHistory.shift();
+    // FIXED PREVIEW - uses modal with iframe
+    function openPreviewModal(url) {
+        previewIframe.src = url;
+        document.getElementById('previewModal').classList.add('active');
     }
 
-    function undoLast() {
-        if (undoHistory.length > 0) {
-            pdfStack = JSON.parse(JSON.stringify(undoHistory.pop()));
-            renderFileList();
-            notify("↩️ Undo berjaya!");
-        } else {
-            notify("Tiada history untuk undo", true);
-        }
-    }
-
-    function escapeHtml(str) {
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
-    }
-
-    // Preview PDF
     async function showPreview(id) {
         const item = pdfStack.find(f => f.id === id);
-        if (!item || !item.file) {
-            notify("Fail tidak dijumpai", true);
-            return;
-        }
+        if (!item || !item.file) { notify("File not found", true); return; }
         const arrayBuf = await item.file.arrayBuffer();
         const blob = new Blob([arrayBuf], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
-        previewIframe.src = url;
-        previewModal.classList.add('active');
-        URL.revokeObjectURL(url);
+        openPreviewModal(url);
+        // Clean up URL when modal closes - but we'll do it on close
+        const modal = document.getElementById('previewModal');
+        const closeHandler = () => {
+            URL.revokeObjectURL(url);
+            modal.removeEventListener('modalClosed', closeHandler);
+        };
+        modal.addEventListener('modalClosed', closeHandler, { once: true });
     }
 
-    // Render dengan SortableJS
     function renderFileList() {
         if (!fileContainer) return;
         if (pdfStack.length === 0) {
-            fileContainer.innerHTML = `<div class="empty-state-quirk">༄  tiada pdf, angin bertiup sunyi. upload dulu ༄</div>`;
+            fileContainer.innerHTML = `<div class="empty-state-quirk">༄ no PDFs yet. upload some files ༄</div>`;
             if (sortableInstance) sortableInstance.destroy();
             updateCounter();
             return;
@@ -667,14 +556,14 @@
         pdfStack.forEach((item, idx) => {
             html += `
                 <div class="file-card-retro" data-id="${item.id}">
-                    <div style="display: flex; align-items: center; gap: 15px; flex:2;">
+                    <div style="display: flex; align-items: center; gap: 12px; flex:2;">
                         <div class="drag-handle"><i class="fas fa-grip-vertical"></i></div>
                         <div class="file-icon-box" data-preview-id="${item.id}">
                             <i class="fas fa-scroll"></i>
                         </div>
-                        <div class="file-info-detail">
-                            <strong style="font-family: monospace;">${escapeHtml(item.name)}</strong><br>
-                            <span class="mono-text" style="font-size:0.7rem;">${formatBytes(item.size)} ${item.pageCount ? `· ${item.pageCount} m/s` : ''}</span>
+                        <div>
+                            <strong>${escapeHtml(item.name)}</strong><br>
+                            <span class="mono-text" style="font-size:0.7rem;">${formatBytes(item.size)} ${item.pageCount ? `· ${item.pageCount} pgs` : ''}</span>
                         </div>
                     </div>
                     <div class="order-controls">
@@ -687,34 +576,11 @@
         });
         fileContainer.innerHTML = html;
 
-        // attach events
-        document.querySelectorAll('.up-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const idx = parseInt(btn.dataset.idx);
-                if (idx > 0) moveItem(idx, idx-1);
-            });
-        });
-        document.querySelectorAll('.down-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const idx = parseInt(btn.dataset.idx);
-                if (idx < pdfStack.length-1) moveItem(idx, idx+1);
-            });
-        });
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const id = parseInt(btn.dataset.id);
-                removeById(id);
-            });
-        });
-        document.querySelectorAll('.file-icon-box').forEach(el => {
-            el.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const id = parseInt(el.dataset.previewId);
-                if (id) showPreview(id);
-            });
-        });
+        document.querySelectorAll('.up-btn').forEach(btn => btn.addEventListener('click', (e) => { let idx = parseInt(btn.dataset.idx); if (idx > 0) moveItem(idx, idx-1); }));
+        document.querySelectorAll('.down-btn').forEach(btn => btn.addEventListener('click', (e) => { let idx = parseInt(btn.dataset.idx); if (idx < pdfStack.length-1) moveItem(idx, idx+1); }));
+        document.querySelectorAll('.delete-btn').forEach(btn => btn.addEventListener('click', (e) => { let id = parseInt(btn.dataset.id); removeById(id); }));
+        document.querySelectorAll('.file-icon-box').forEach(el => el.addEventListener('click', (e) => { let id = parseInt(el.dataset.previewId); if (id) showPreview(id); }));
 
-        // Sortable
         if (sortableInstance) sortableInstance.destroy();
         sortableInstance = new Sortable(fileContainer, {
             animation: 200,
@@ -726,7 +592,7 @@
                     const moved = pdfStack.splice(oldIdx, 1)[0];
                     pdfStack.splice(newIdx, 0, moved);
                     renderFileList();
-                    notify("📦 Susunan diubah melalui drag!");
+                    notify("📦 Order changed via drag!");
                     saveHistory();
                 }
             }
@@ -734,73 +600,28 @@
         updateCounter();
     }
 
-    function moveItem(from, to) {
-        if (to < 0 || to >= pdfStack.length) return;
-        [pdfStack[from], pdfStack[to]] = [pdfStack[to], pdfStack[from]];
-        renderFileList();
-        notify(`🔄 Urutan berubah`);
-        saveHistory();
-    }
-
-    function removeById(id) {
-        saveHistory();
-        pdfStack = pdfStack.filter(f => f.id !== id);
-        renderFileList();
-        notify(`🗑️ PDF dikeluarkan`);
-    }
-
-    async function getPageCount(file) {
-        try {
-            const buf = await file.arrayBuffer();
-            const { PDFDocument } = PDFLib;
-            const doc = await PDFDocument.load(buf);
-            return doc.getPageCount();
-        } catch { return 0; }
-    }
+    function moveItem(from, to) { if (to < 0 || to >= pdfStack.length) return; [pdfStack[from], pdfStack[to]] = [pdfStack[to], pdfStack[from]]; renderFileList(); notify("🔄 Order updated"); saveHistory(); }
+    function removeById(id) { saveHistory(); pdfStack = pdfStack.filter(f => f.id !== id); renderFileList(); notify("🗑️ PDF removed"); }
+    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){ if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
 
     async function addFiles(filesArray) {
         let added = 0;
-        if (pdfStack.length + filesArray.length > 20) {
-            notify("had maksimum 20 PDF! hapuskan sebahagian.", true);
-            return;
-        }
+        if (pdfStack.length + filesArray.length > 20) { notify("Maximum 20 PDF files allowed!", true); return; }
         for (let f of filesArray) {
-            if (f.type !== 'application/pdf') {
-                notify(`"${f.name}" bukan PDF!`, true);
-                continue;
-            }
-            if (pdfStack.some(ex => ex.name === f.name && ex.size === f.size)) {
-                notify(`"${f.name}" dah wujud dalam senarai.`, true);
-                continue;
-            }
+            if (f.type !== 'application/pdf') { notify(`"${f.name}" is not a PDF`, true); continue; }
+            if (pdfStack.some(ex => ex.name === f.name && ex.size === f.size)) { notify(`"${f.name}" already exists`, true); continue; }
             const pageCount = await getPageCount(f);
-            pdfStack.push({
-                id: uid++,
-                file: f,
-                name: f.name,
-                size: f.size,
-                pageCount: pageCount
-            });
+            pdfStack.push({ id: uid++, file: f, name: f.name, size: f.size, pageCount: pageCount });
             added++;
         }
-        if (added) {
-            renderFileList();
-            saveHistory();
-            notify(`➕ ${added} PDF baharu disusun. jumlah: ${pdfStack.length}`);
-        } else if (filesArray.length) {
-            notify('gagal tambah PDF. check format/duplicate', true);
-        }
+        if (added) { renderFileList(); saveHistory(); notify(`➕ ${added} PDF(s) added!`); }
     }
 
-    // MERGE dengan progress
     async function performMerge() {
-        if (pdfStack.length < 2) {
-            notify("perlukan sekurang-kurangnya 2 PDF untuk digabungkan!", true);
-            return;
-        }
+        if (pdfStack.length < 2) { notify("At least 2 PDFs required to merge!", true); return; }
         progressContainer.style.display = 'block';
         progressFill.style.width = '0%';
-        progressText.innerText = 'Memuatkan... 0%';
+        progressText.innerText = 'Loading... 0%';
         try {
             const { PDFDocument } = PDFLib;
             const merged = await PDFDocument.create();
@@ -810,75 +631,71 @@
                 const pdfDoc = await PDFDocument.load(buf);
                 const pages = await merged.copyPages(pdfDoc, pdfDoc.getPageIndices());
                 for (let p of pages) merged.addPage(p);
-                const percent = ((i + 1) / pdfStack.length) * 100;
+                const percent = ((i+1)/pdfStack.length)*100;
                 progressFill.style.width = `${percent}%`;
-                progressText.innerText = `Menggabung ${item.name}... ${Math.round(percent)}%`;
+                progressText.innerText = `Merging ${item.name}... ${Math.round(percent)}%`;
             }
             const finalBytes = await merged.save();
-            const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
-            saveAs(new Blob([finalBytes], { type: 'application/pdf' }), `dreammerge_${timestamp}.pdf`);
-            progressText.innerText = 'Selesai!';
-            notify("🎉 BERJAYA! fail gabungan sedia dimuat turun. jiwa kacau!", false);
-            setTimeout(() => { progressContainer.style.display = 'none'; }, 2000);
-        } catch (err) {
-            notify("❌ error masa merge: " + err.message, true);
-            progressContainer.style.display = 'none';
+            const timestamp = new Date().toISOString().slice(0,19).replace(/:/g,'-');
+            saveAs(new Blob([finalBytes], {type:'application/pdf'}), `dreammerge_${timestamp}.pdf`);
+            progressText.innerText = 'Complete!';
+            notify("🎉 MERGE SUCCESSFUL! File downloaded.");
+            setTimeout(()=> progressContainer.style.display = 'none', 2000);
+        } catch(e) { notify("Error: "+e.message, true); progressContainer.style.display = 'none'; }
+    }
+
+    function resetAll() { saveHistory(); pdfStack = []; renderFileList(); notify("✨ All PDFs cleared"); }
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { 
+        const modal = document.getElementById(id);
+        modal.classList.remove('active');
+        if (id === 'previewModal') {
+            previewIframe.src = 'about:blank';
+            // Dispatch event for cleanup
+            const event = new Event('modalClosed');
+            modal.dispatchEvent(event);
         }
     }
+    window.closeModal = closeModal;
 
-    function resetEverything() {
-        saveHistory();
-        pdfStack = [];
-        renderFileList();
-        notify("✦ semua pdf dilenyapkan. mulakan semula ✦");
-    }
-
-    // Event listeners
     mergeBtn.addEventListener('click', performMerge);
-    resetBtn.addEventListener('click', resetEverything);
-    clearAllBtn.addEventListener('click', resetEverything);
+    resetBtn.addEventListener('click', resetAll);
+    clearAllBtn.addEventListener('click', resetAll);
     undoBtn.addEventListener('click', undoLast);
 
     uploadZone.addEventListener('click', () => fileInput.click());
-    fileInput.addEventListener('change', (e) => {
-        if (e.target.files.length) addFiles(Array.from(e.target.files));
-        fileInput.value = '';
+    fileInput.addEventListener('change', (e) => { if(e.target.files.length) addFiles(Array.from(e.target.files)); fileInput.value = ''; });
+    uploadZone.addEventListener('dragover', e => e.preventDefault());
+    uploadZone.addEventListener('drop', e => { e.preventDefault(); const files = Array.from(e.dataTransfer.files); if(files.length) addFiles(files); });
+
+    document.getElementById('aboutBtn').addEventListener('click', () => openModal('aboutModal'));
+    document.getElementById('donateBtn').addEventListener('click', () => {
+        window.open('https://www.paypal.com/donate', '_blank');
+        notify("❤️ Thank you for your support!", false);
     });
-    uploadZone.addEventListener('dragover', (e) => { e.preventDefault(); uploadZone.style.transform = 'scale(0.98)'; });
-    uploadZone.addEventListener('dragleave', () => { uploadZone.style.transform = 'scale(1)'; });
-    uploadZone.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadZone.style.transform = 'scale(1)';
-        const files = Array.from(e.dataTransfer.files);
-        if (files.length) addFiles(files);
+    
+    document.getElementById('complaintBtn').addEventListener('click', () => openModal('complaintModal'));
+    document.getElementById('sendComplaintBtn').addEventListener('click', () => {
+        const name = document.getElementById('complaintName').value || 'Anonymous';
+        const email = document.getElementById('complaintEmail').value || '';
+        const message = document.getElementById('complaintMessage').value;
+        if (!message.trim()) { notify("Please enter your message!", true); return; }
+        const subject = encodeURIComponent(`PDFeditor Report from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\n---\nSent from PDFeditor Gempack`);
+        window.location.href = `mailto:zulhelaimi.zm@gmail.com?subject=${subject}&body=${body}`;
+        notify("📧 Report opened in your email client. Please send it.", false);
+        closeModal('complaintModal');
+        document.getElementById('complaintName').value = '';
+        document.getElementById('complaintEmail').value = '';
+        document.getElementById('complaintMessage').value = '';
     });
 
-    closeModalBtn.addEventListener('click', () => {
-        previewModal.classList.remove('active');
-        previewIframe.src = 'about:blank';
-    });
-
-    // THEME
-    let darkActive = false;
-    themeToggler.addEventListener('click', () => {
-        darkActive = !darkActive;
-        if (darkActive) {
-            document.body.classList.add('dark');
-            themeToggler.innerHTML = '<i class="fas fa-sun"></i> LIGHT';
-            notify("🌙 mod malam diaktifkan, kesan butiran halus muncul.");
-        } else {
-            document.body.classList.remove('dark');
-            themeToggler.innerHTML = '<i class="fas fa-moon"></i> DARK';
-            notify("☀️ mod siang, biar vintage terus bergema.");
-        }
-    });
-
-    // dummy nav
-    document.getElementById('navPlayBtn')?.addEventListener('click', () => notify("⚡ fitur 'stomp' akan datang, bersabarlah."));
-    document.getElementById('navMysticBtn')?.addEventListener('click', () => notify("🌀 mystic mode: tiada yang tersembunyi, tapi kami tetap rahsia."));
+    let dark = false;
+    themeToggler.addEventListener('click', () => { dark = !dark; if(dark) document.body.classList.add('dark'); else document.body.classList.remove('dark'); notify(dark?"🌙 Dark mode activated":"☀️ Light mode activated"); });
 
     renderFileList();
-    notify("◈ drag kad untuk susun! klik ikon scroll untuk preview PDF ◈");
+    notify("🚀 Drag cards to reorder! Click the scroll icon to preview.");
 </script>
 </body>
 </html>
